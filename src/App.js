@@ -6,6 +6,7 @@ import HomePage from './HomePage.js';
 import Profile from './Profile.js';
 import Knowledge from './Knowledge.js';
 import Pokemon from './Pokemon.js';
+import { withAuth0 } from '@auth0/auth0-react';
 
 function App() {
   return (
@@ -44,4 +45,4 @@ function App() {
   );
 }
 
-export default App;
+export default withAuth0(App);
