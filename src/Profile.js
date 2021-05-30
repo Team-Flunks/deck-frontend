@@ -9,6 +9,7 @@ class Profile extends React.Component {
   render() {
     return (
       <>
+        <h1>You are on the Profile page</h1>
       </>
     )
   }
