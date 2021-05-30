@@ -9,6 +9,7 @@ class Pokemon extends React.Component {
   render() {
     return (
       <>
+        <h1>You are on the Pokemon page</h1>
       </>
     )
   }
