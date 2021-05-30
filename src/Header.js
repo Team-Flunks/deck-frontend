@@ -8,15 +8,18 @@ import LoginButton from './LoginButton';
 
 class Header extends React.Component {
   render() {
-    return(
+    return (
       <div>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand>My Favorite Books</Navbar.Brand>
-        <Link to="/">Home</Link>
-        <Link to="/profile">Profile</Link>
-        {this.props.isAuthenticated ? <LogoutButton /> : <LoginButton />}
-      </Navbar>
-      
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+          <Navbar.Brand>My Favorite Books</Navbar.Brand>
+          {/* WE WILL CHANGE THESE ONCE HOMEPAGE IS POPULATED WITH IMAGES LATER */}
+          <Link to="/">Homepage</Link>
+          <Link to="/profile">Profile</Link>
+          <Link to="/pokemon">Pokemon</Link>
+          <Link to="/knowledge">Knowledge</Link>
+          {this.props.isAuthenticated ? <LogoutButton /> : <LoginButton />}
+        </Navbar>
+
       </div>
     );
   }
