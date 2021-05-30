@@ -1,6 +1,11 @@
 import './App.css';
 import { Route, BrowserRouter } from 'react-router-dom';
 import IsLoadingAndError from './IsLoadingAndError';
+import Header from './Header.js';
+import HomePage from './HomePage.js';
+import Profile from './Profile.js';
+import Knowledge from './Knowledge.js';
+import Pokemon from './Pokemon.js';
 
 function App() {
   return (
