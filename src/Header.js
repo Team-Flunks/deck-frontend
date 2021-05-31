@@ -16,10 +16,11 @@ class Header extends React.Component {
           ? <>
             <Link to="/">Homepage</Link>
             <Link to="/profile">Profile</Link>
-            <Link to="/pokemon">Pokemon</Link>
-            <Link to="/knowledge">Knowledge</Link>
+            <Link to="/knowledge">Knowledge Game</Link>
+            <Link to="/pokemon">Pokemon Game</Link>
           </>
           : null}
+        <Link to="/AboutUs">About Us</Link>
         <LogoutButton />
         <LoginButton />
       </Navbar>
