@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import LogoutButton from './LogoutButton.js';
 import LoginButton from './LoginButton.js';
 import { withAuth0 } from '@auth0/auth0-react';
-// import './Header.css';
+import './Header.css';
 
 class Header extends React.Component {
   render() {
     return (
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand>Arcade</Navbar.Brand>
+      <Navbar className="HeaderClass">
+        <h1>Project Arcade</h1>
         {/* WE WILL CHANGE THESE ONCE HOMEPAGE IS POPULATED WITH IMAGES LATER */}
         {this.props.auth0.isAuthenticated
           ? <>
