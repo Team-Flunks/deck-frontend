@@ -18,7 +18,7 @@ class AboutUs extends React.Component {
         <div className="Keian">
           <h3>Keian Anthony</h3>
           <img src={KeianImage} alt="Picture of Keian" />
-          <h4>Software developer focusing on logic and algorithms used within both frontend and backend applications. Other interests include skiing, cooking, and gaming.</h4>
+          <h4>Software developer focusing on logic and algorithms used within both front-end and back-end applications. Other interests include skiing, cooking, and gaming.</h4>
         </div>
         <div className="Peyton">
           <h3>Peyton Mader</h3>
