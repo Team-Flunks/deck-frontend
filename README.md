@@ -15,3 +15,9 @@ Domain Modeling:
 
 Schema Diagram:
 ![SchemaDiagram](./images/SchemaDiagram.jpg)
+
+Wireframe:
+![Page1](./images/Page1.jpg)
+![Page2](./images/Page2.jpg)
+![Page3](./images/Page3.jpg)
+![Page4](./images/Page4.jpg)
