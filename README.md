@@ -9,3 +9,9 @@ This project is made for entertainment purposes. The overall idea is that it wil
 - Charles Bofferding
 - Peyton Mader
 - Quentin Cruz
+
+Domain Modeling:
+![DomainModeling](./images/DomainModeling.jpg)
+
+Schema Diagram:
+![SchemaDiagram](./images/SchemaDiagram.jpg)
