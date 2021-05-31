@@ -6,6 +6,7 @@ import HomePage from './HomePage.js';
 import Profile from './Profile.js';
 import Knowledge from './Knowledge.js';
 import Pokemon from './Pokemon.js';
+import TestSuite from './TestSuite.js';
 import { withAuth0 } from '@auth0/auth0-react';
 import React from 'react';
 
@@ -17,6 +18,8 @@ class App extends React.Component {
           <IsLoadingAndError>
             {/* Need to make Header component */}
             <Header />
+            {/* Remove when styling, this is for testing as indicated by the name */}
+            <TestSuite />
             <Route exact path="/">
               {this.props.auth0.isAuthenticated
                 // Need to make HomePage component

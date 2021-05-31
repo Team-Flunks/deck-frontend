@@ -19,7 +19,11 @@ class Knowledge extends React.Component {
   componentDidMount() {
     this.fetchStatement();
   }
+  
 
+  //Needs a way to send gamerecord up to server to be loaded into DB
+
+  //Response needs to be only the statement, data type? JSON, just string?
   fetchStatement = () => {
     // Generate random number (0 or 1) and send that to the server, as well as store in state value to store whether data recieved from server is truth or a lie.
     this.setState({ currentStatementCandor: Math.floor(Math.random() * 2) });
@@ -41,13 +45,16 @@ class Knowledge extends React.Component {
   }
 
   testAnswer = () => {
+    //Test if correct answer and icrement score if so
     if (this.state.selectedButton === this.state.currentStatementCandor) {
       this.setState({ score: this.state.score + 1 });
     }
+    //Increment rounds seen, after 10 rounds set gameState to false
     this.setState({ rounds: this.state.rounds + 1 });
     if (this.state.rounds === 10) {
       this.setState({ gameState: false });
     }
+    //Loop new questions while we are still playing
     if (this.state.gameState) {
       this.fetchStatement();
     }
