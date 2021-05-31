@@ -21,3 +21,8 @@ Wireframe:
 ![Page2](./images/Page2.jpg)
 ![Page3](./images/Page3.jpg)
 ![Page4](./images/Page4.jpg)
+
+## Acknowledgments and credits:
+
+- [This](https://fdossena.com/?p=html5cool/buttons/i.frag) link was used for button styling on login/logout in the header
+- [This](https://fonts.google.com/specimen/Space+Mono?category=Monospace&preview.text=Font%20test%20for%20the%20website&preview.text_type=custom) font used for header text styling
