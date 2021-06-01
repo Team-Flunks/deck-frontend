@@ -1,11 +1,29 @@
 #home-page {
-  background-color: rgb(13, 66, 163);
-  width: 900px;;
+  background-color: rgba(83, 81, 81, 0.623);
+  border-radius: 25px;
   height: 700px;
-  margin: auto;
+  margin: 1em auto;
+  width: 900px;
 }
 
 #home-page h1 {
-  color: white;
-  padding-top: 200px;
+  border-bottom: solid #FFFFFF 2px;
+  color: #FFFFFF;
+  font-family: 'Hind Siliguri', sans-serif;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+}
+
+a.machine {
+  width: 50%;
+}
+
+a img {
+  width: 70%;
+  margin: 2em auto;
+}
+
+.machines {
+  display: flex;
 }
