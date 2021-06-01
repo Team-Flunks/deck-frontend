@@ -3,7 +3,10 @@ import React from 'react';
 import KeianImage from './TeamPics/KeianSquare.jpg';
 import ChazImage from './TeamPics/ItsChazSquare.jpg';
 import QuentinImage from './TeamPics/QuentinSquare.jpg';
-import './AboutUs.css';
+import PeytonImage from './TeamPics/PeytonSquare.png';
+import './css/AboutUs.css';
+import Background from './Background.js'
+
 
 class AboutUs extends React.Component {
   constructor(props) {
@@ -12,7 +15,9 @@ class AboutUs extends React.Component {
 
   render() {
     return (
-      <div className="AboutUs">
+      <>
+      <Background />
+      <div className="AboutUs toFade">
         <h1>Welcome to our About Us!</h1>
         <h2>Our team:</h2>
         <div className="Keian">
@@ -22,8 +27,8 @@ class AboutUs extends React.Component {
         </div>
         <div className="Peyton">
           <h3>Peyton Mader</h3>
-          <img src="" alt="Picture of Peyton" />
-          <h4>Short description of self-interests & experience / strengths, etc.</h4>
+          <img src={PeytonImage} alt="Picture of Peyton" />
+          <h4>Software developer and musician focused on the intersection of art and technology. Other interests include cello and guitar, possums, dark chocolate, and crabbing.</h4>
         </div>
         <div className="Charles">
           <h3>Charles Bofferding</h3>
@@ -36,6 +41,7 @@ class AboutUs extends React.Component {
           <h4>Short description of self-interests & experience / strengths, etc.</h4>
         </div>
       </div>
+      </>
     )
   }
 }

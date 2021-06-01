@@ -1,0 +1,41 @@
+#enter-page {
+  background-color: black;
+
+    position:fixed;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+    background: black;
+}
+
+#enter-div {
+  margin: 25% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#enter-page h1 {
+  color: #e74040;
+  font-size: 3.5em;
+  font-family: 'Space Mono', monospace;
+  width: 500px;
+}
+
+#enter-page a {
+  color: #FFFFFF;
+  font-size: 1.5em;
+  transition: 1s;
+  font-family: 'Space Mono', monospace;
+}
+
+#enter-page a:hover {
+  text-decoration: none;
+  color: #e74040;
+  transition: 0.2s;
+}

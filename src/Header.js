@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import LogoutButton from './LogoutButton.js';
 import LoginButton from './LoginButton.js';
 import { withAuth0 } from '@auth0/auth0-react';
-import './Header.css';
+import './css/Header.css';
 
 class Header extends React.Component {
   render() {
@@ -14,7 +14,7 @@ class Header extends React.Component {
         {/* WE WILL CHANGE THESE ONCE HOMEPAGE IS POPULATED WITH IMAGES LATER */}
         {this.props.auth0.isAuthenticated
           ? <>
-            <Link to="/">Homepage</Link>
+            <Link to="/home">Homepage</Link>
             <Link to="/profile">Profile</Link>
             <Link to="/knowledge">Knowledge Game</Link>
             <Link to="/pokemon">Pokemon Game</Link>

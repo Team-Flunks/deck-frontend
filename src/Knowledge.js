@@ -2,6 +2,10 @@
 import React from 'react';
 import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
+import Background from './Background.js'
+import './css/Knowledge.css';
+import { Modal } from 'react-bootstrap';
+
 
 class Knowledge extends React.Component {
   constructor(props) {
@@ -13,6 +17,7 @@ class Knowledge extends React.Component {
       rounds: 0,
       selectedButton: null,
       gameState: true,
+      showModal: false,
     }
   }
 
@@ -62,19 +67,62 @@ class Knowledge extends React.Component {
   render() {
     return (
       <>
-        <h1>You are on the Knowledge page</h1>
-        <div className="gameStats">
-          <h4>High score</h4>
-          <h4>{this.state.score}</h4>
-          <h4>Instructions</h4>
-        </div>
-        {!this.state.gameState
-          ? <h2>Thanks for playing! You {this.state.score >= 8 ? "did" : "did not"} get a token!</h2>
-          : null}
-        <h3>{this.state.currentStatement}</h3>
-        <h2>So... Is this a true fact, or is this a lie?</h2>
-        <button onClick={() => this.handleClick(0)}>Truth</button>
-        <button onClick={() => this.handleClick(1)}>Lie</button>
+        <Background />
+
+        <section className="toFade" id="knowledge">
+
+          <h1>The Knowledge Game</h1>
+
+          <div className="gameStats">
+            <h4>High score: (tbd)</h4>
+            <h4>Current Score: {this.state.score}</h4>
+
+            <div id="instructions">
+              <button id="instructionz" onClick={() => this.setState({showModal: true})}>Instructions</button>
+            </div>
+
+            {/* This could be moved to another module perhaps... Maybe a task for later. */}
+            <Modal
+              show={this.state.showModal}
+              onHide={() => this.setState({showModal: false})}
+              id="modal"
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title id="modal-title">
+                    Instructions
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <p>
+                  You will be faced with 10 statements that are either truths, or lies. You have to figure out which is which! You get ten rounds, and if you get more than 5 correct... We'll count that as a win :)
+                  </p>
+                </Modal.Body>
+              </Modal>
+            
+          </div>
+
+
+          {!this.state.gameState
+            ? <h2>Thanks for playing! You {this.state.score >= 8 ? "did" : "did not"} get a token!</h2>
+            : null}
+          <div id="statement">
+            <h3>Statement Will Be Here{this.state.currentStatement}</h3>
+          </div>
+
+          <div id="question">
+            <h2>Hmmm... Is this a truth, or a lie?</h2>
+          </div>
+
+
+          <div id="buttons">
+            <div>
+              <button className="button" id="truth" onClick={() => this.handleClick(0)}>TRUTH</button>
+            </div>
+            <div>
+              <button className="button" id="lie" onClick={() => this.handleClick(1)}>LIE</button>
+            </div>
+          </div>
+        </section>
       </>
     )
   }

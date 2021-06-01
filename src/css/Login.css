@@ -1,0 +1,9 @@
+.log {
+  background-color: blue;
+  color: white;
+  border: 2px solid whitesmoke;
+}
+
+.log:hover {
+  background-color: gray
+}

@@ -1,7 +1,7 @@
 import React from 'react';
-import './Login.css';
+import './css/Login.css';
 import { useAuth0 } from '@auth0/auth0-react';
-import './Button.css';
+import './css/Button.css';
 
 function LoginButton() {
   const { isAuthenticated, loginWithRedirect } = useAuth0();

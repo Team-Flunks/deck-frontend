@@ -1,0 +1,11 @@
+#home-page {
+  background-color: rgb(13, 66, 163);
+  width: 900px;;
+  height: 700px;
+  margin: auto;
+}
+
+#home-page h1 {
+  color: white;
+  padding-top: 200px;
+}
