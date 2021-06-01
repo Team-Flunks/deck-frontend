@@ -15,6 +15,9 @@ class Pokemon extends React.Component {
       rounds: 0,
       highScore: 0,
       pokemon: ['first poke', 'second poke', 'third poke', 'fourth poke'],
+      target: 0,
+      imageSrc: 'https://via.placeholder.com/150',
+      selectedButton: 0,
       gameState: true,
       showModal: false,
       showEndModal: false,
@@ -67,7 +70,12 @@ class Pokemon extends React.Component {
         }
         axios(requestConfig)
           .then(response => {
-            this.setState({ pokemon: response.data });
+            //May need another .data after .data
+            this.setState({ pokemon: response.data.names });
+            this.setState({ target: response.data.target });
+            this.setState({ imageSrc: response.data.imageSrc });
+
+
           })
           .catch(err => console.error(err));
       })
@@ -106,13 +114,33 @@ class Pokemon extends React.Component {
   }
 
 
+// Test if the poke that was clicked is equal to the target sent by server
+  testAnswer = () => {
+    if (this.state.selectedButton === this.state.target) {
+      this.setState({ score: this.state.score + 1 });
+    }
+    this.setState({ rounds: this.state.rounds + 1 });
+    if (this.state.rounds === 4) {
+      this.handleEnd();
+    }
+    if (this.state.gameState) {
+      this.fetchStatement();
+    }
+  }
+
+  // set selected button equal to 0-3, so correspond with the poke that was clicked
+  handleClick = (e) => {
+    this.setState({ selectedButton: e });
+    this.testAnswer();
+  }
+
 
   // //FUNCTION TO DETERMINE WHEN POKEMON GAME ENDS that will call handleEnd
 
   handleEnd = () => {
     this.setState({showEndModal: true});
 
-    if (this.state.score > 7){
+    if (this.state.score > 3){
       this.setState({didWin: true});
     } else {
       this.setState({didWin: false});
@@ -127,6 +155,7 @@ class Pokemon extends React.Component {
   }
 
 
+
   render() {
     return (
       <div>
@@ -136,7 +165,7 @@ class Pokemon extends React.Component {
       <h1>The Pokemon Game</h1>
 
         <div className="gameStats">
-          <h4>High score: {this.state.highScore} / 10</h4>
+          <h4>High score: {this.state.highScore} / 5</h4>
           <h4>Current Score: {this.state.score} / {this.state.rounds}</h4>
 
           <div id="instructions">
@@ -158,39 +187,45 @@ class Pokemon extends React.Component {
             </Modal.Header>
             <Modal.Body>
               <p>
-                 You will be faced with some Pokemon. blah blah blah We'll count that as a win :)
+                 You will be faced with an image of one of the pokemon, and four names. You will have to choose which pokemon name matches the image of the character! You have 5 tries. If you get 4/5 or higher, we'll consider that a win. <br></br>Hope you've been studying :)
                 </p>
             </Modal.Body>
           </Modal>
 
           <KnowledgeEndModal showEndModal={this.state.showEndModal} score={this.state.score} callback={this.setEndModal}/>
 
-        {/* {!this.state.gameState
-          ?     
-          <KnowledgeEndModal showEndModal={this.state.showEndModal} score={this.state.score} callback={this.setEndModal}/>
-          : null} */}
-        <div id="Pokestatement">
-          <h3>Statement Will Be Here{this.state.currentStatement}</h3>
+
+        <div id="poke-picture">
+          <img src={this.state.imageSrc} />
         </div>
 
         <div id="question">
-          <h2>Hmmm... Is this a truth, or a lie?</h2>
+          <h2>Hmmm... which pokemon is this?</h2>
         </div>
 
 
         {/* Will pass the number in the array of the pokemon clicked */}
+        
         <div id="pokemon-names">
-          <div>
+        <div>
+          <div className="poke-button-case">
             <button className="poke-button" id="first" onClick={() => this.handleClick(0)}>{this.state.pokemon[0]}</button>
           </div>
+          </div>
           <div>
+          <div className="poke-button-case">
             <button className="poke-button" id="second" onClick={() => this.handleClick(1)}>{this.state.pokemon[1]}</button>
           </div>
-          <div>
-            <button className="poke-button" id="third" onClick={() => this.handleClick(2)}>{this.state.pokemon[2]}</button>
           </div>
           <div>
+          <div className="poke-button-case">
+            <button className="poke-button" id="third" onClick={() => this.handleClick(2)}>{this.state.pokemon[2]}</button>
+          </div>
+          </div>
+          <div>
+          <div className="poke-button-case">
             <button className="poke-button" id="fourth" onClick={() => this.handleClick(3)}>{this.state.pokemon[3]}</button>
+          </div>
           </div>
 
         </div>
