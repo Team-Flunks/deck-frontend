@@ -7,9 +7,10 @@ img {
 
 .AboutUs {
   background-color: rgb(219, 219, 219);
-  width: 90%;
+  width: 800px;
   height: 100%;
   margin: auto;
+  font-family: 'Hind Siliguri', sans-serif;
 }
 
 /* All text on page */

@@ -14,7 +14,7 @@ class Knowledge extends React.Component {
       currentStatement: '',
       currentStatementCandor: null,
       score: 0,
-      rounds: 0,
+      rounds: 1,
       selectedButton: null,
       gameState: true,
       showModal: false,
@@ -44,6 +44,32 @@ class Knowledge extends React.Component {
           .catch(err => console.error(err));
       })
   }
+
+
+
+
+  // sendGameData = () => {
+  //   this.props.auth0.getIdTokenClaims()
+  //     .then(tokenData => {
+  //       const jwt = tokenData.__raw;
+  //       const requestConfig = {
+  //         headers: { "Authorization": `Bearer ${jwt}` },
+  //         method: 'put',
+  //         baseURL: process.env.REACT_APP_SERVER_URL || 'http://localhost:3002',
+  //         url: `/knowledgegame/?currentCandor=${this.state.currentStatementCandor}`
+  //       }
+  //       axios(requestConfig)
+  //         .then(response => {
+  //           this.setState({ currentStatement: response.data });
+  //         })
+  //         .catch(err => console.error(err));
+  //     })
+  // }
+
+  // ? game = string of game didWin = true score= number 
+
+
+
 
   testAnswer = () => {
     if (this.state.selectedButton === this.state.currentStatementCandor) {
