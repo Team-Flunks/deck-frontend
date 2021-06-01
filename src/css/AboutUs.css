@@ -9,8 +9,9 @@ img {
   background-color: rgb(219, 219, 219);
   width: 800px;
   height: 100%;
-  margin: auto;
+  margin: 2em auto;
   font-family: 'Hind Siliguri', sans-serif;
+  border-radius: 25px;
 }
 
 /* All text on page */
