@@ -11,13 +11,10 @@ class Header extends React.Component {
     return (
       <Navbar className="HeaderClass">
         <h1>Project Arcade</h1>
-        {/* WE WILL CHANGE THESE ONCE HOMEPAGE IS POPULATED WITH IMAGES LATER */}
         {this.props.auth0.isAuthenticated
           ? <>
             <Link to="/home">Homepage</Link>
             <Link to="/profile">Profile</Link>
-            <Link to="/knowledge">Knowledge Game</Link>
-            <Link to="/pokemon">Pokemon Game</Link>
           </>
           : null}
         <Link to="/AboutUs">About Us</Link>
