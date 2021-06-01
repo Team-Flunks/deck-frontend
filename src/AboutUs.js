@@ -38,7 +38,8 @@ class AboutUs extends React.Component {
         <div className="Quentin">
           <h3>Quentin Cruz</h3>
           <img src={QuentinImage} alt="Picture of Quentin" />
-          <h4>Short description of self-interests & experience / strengths, etc.</h4>
+          <h4>Software developer with an emphasis in JavaScript focusing on using technology to increase productivity in healthcare. Other interests include cooking, hiking, singing, and playing golf.</h4>
+
         </div>
       </div>
       </>
