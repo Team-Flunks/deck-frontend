@@ -1,16 +1,26 @@
 
 .profileData{
-  background-color: rgb(219, 219, 219);
-  width: 90%;
+  background-color: rgba(83, 81, 81, 0.623);
+  border-radius: 25px;
+  width: 30%;
   height: 100%;
-  margin: auto;
+  margin: 2em auto;
   font-family: 'Hind Siliguri', sans-serif;
 }
 
 .profileData img {
-  width: 20%;
+  width: 50%;
 }
 
-.profile h1 {
+.profileData h1, .profileData h2, .profileData h3 {
+  color: #FFFFFF;
   text-align: center;
+}
+
+.profileData h1 {
+  border-bottom: solid #FFFFFF 2px;
+  width: 50%;
+  padding-top: 20px;
+  margin: 0 auto;
+  margin-bottom: 0.6em;
 }
