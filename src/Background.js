@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import './css/Background.css';
-import vid from "./gif1.mp4"
+import vid from "./BranchingPattern.mp4"
 
 
 class Background extends React.Component {
@@ -11,9 +11,9 @@ class Background extends React.Component {
 
   render() {
     return (
-        <video autoPlay muted loop id="background-vid">
-          <source src={vid} type="video/mp4"/>
-        </video>
+      <video autoPlay muted loop id="background-vid">
+        <source src={vid} type="video/mp4" />
+      </video>
     )
   }
 }
