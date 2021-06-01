@@ -12,7 +12,6 @@
   padding: 20px;
   margin: 0;
   font-family: 'Space Mono', monospace;
-
 }
 
 .gameStats {
@@ -60,13 +59,14 @@
 #statement h2 {
   padding-bottom:20px;
   margin: 50px auto;
+  font-family: 'Hind Siliguri', sans-serif;
 }
 
 #question {
   height: 80px;
   margin: 20px;
   margin-top: 40px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif
+  font-family: 'Hind Siliguri', sans-serif;
 }
 
 #question h2 {
@@ -92,6 +92,8 @@
   height: 160px;
   border-radius: 50%;
   transition: background-color .5s ease-out 100ms;
+  font-family: 'Hind Siliguri', sans-serif;
+
 }
 
 #truth:hover {
