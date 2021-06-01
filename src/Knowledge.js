@@ -13,11 +13,11 @@ class Knowledge extends React.Component {
     super(props);
     this.state = {
       currentStatement: '',
-      currentStatementCandor: null,
+      currentStatementCandor: '',
       score: 0,
       rounds: 0,
       highScore: 0,
-      selectedButton: null,
+      selectedButton: '',
       gameState: true,
       showModal: false,
       showEndModal: false,
@@ -60,7 +60,6 @@ class Knowledge extends React.Component {
 
   fetchStatement = () => {
     // Generate random number (0 or 1) and send that to the server, as well as store in state value to store whether data recieved from server is truth or a lie.
-    this.setState({ currentStatementCandor: Math.floor(Math.random() * 2) });
     this.props.auth0.getIdTokenClaims()
       .then(tokenData => {
         const jwt = tokenData.__raw;
@@ -68,11 +67,12 @@ class Knowledge extends React.Component {
           headers: { "Authorization": `Bearer ${jwt}` },
           method: 'get',
           baseURL: process.env.REACT_APP_SERVER_URL || 'http://localhost:3002',
-          url: `/knowledgegame/?currentCandor=${this.state.currentStatementCandor}`
+          url: `/knowledgegame`
         }
         axios(requestConfig)
           .then(response => {
-            this.setState({ currentStatement: response.data });
+            this.setState({ currentStatement: response.data.question });
+            this.setState({ currentStatementCandor: 'true'});
           })
           .catch(err => console.error(err));
       })
@@ -113,6 +113,7 @@ class Knowledge extends React.Component {
 
 
   testAnswer = () => {
+    console.log(this.state.currentStatementCandor);
     if (this.state.selectedButton === this.state.currentStatementCandor) {
       this.setState({ score: this.state.score + 1 });
     }
@@ -126,8 +127,12 @@ class Knowledge extends React.Component {
   }
 
   // 0 is truth, 1 is lie
-  handleClick = (e) => {
-    this.setState({ selectedButton: e });
+  handleClick = async (string) => {
+    if(string === 'true'){
+      await this.setState({ selectedButton: 'true' });
+    } else {
+      await this.setState({ selectedButton: 'false' });
+    }
     this.testAnswer();
   }
 
@@ -199,10 +204,10 @@ class Knowledge extends React.Component {
 
           <div id="buttons">
             <div>
-              <button className="button" id="truth" onClick={() => this.handleClick(0)}>TRUTH</button>
+              <button className="button" id="truth" onClick={() => this.handleClick('true')}>TRUTH</button>
             </div>
             <div>
-              <button className="button" id="lie" onClick={() => this.handleClick(1)}>LIE</button>
+              <button className="button" id="lie" onClick={() => this.handleClick('false')}>LIE</button>
             </div>
           </div>
         </section>
