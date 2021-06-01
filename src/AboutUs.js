@@ -33,7 +33,7 @@ class AboutUs extends React.Component {
           <div className="Charles">
             <h3>Charles Bofferding</h3>
             <img src={ChazImage} alt="Picture of Charles" />
-            <h4>Short description of self-interests & experience / strengths, etc.</h4>
+            <h4>Developer of Software, lover of dogs, hiker of mountains, writer of run on sentences, user of the oxford comma and complete truth teller. My technical focus is in back-end development and finding efficient solutions to complicated problems.</h4>
           </div>
           <div className="Quentin">
             <h3>Quentin Cruz</h3>
