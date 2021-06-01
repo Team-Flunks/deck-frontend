@@ -150,3 +150,24 @@
   font-family: 'Space Mono', monospace;
 }
 
+#end-modal {
+  width: 400px;
+  border-radius: 0px;
+  position: absolute;
+  top: 25%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#end-modal-title {
+  color: #e74040;
+  position: absolute;
+  left: 133px;
+  font-family: 'Space Mono', monospace;
+}
+
+#end-modal button {
+  color: #e74040;
+  border:rgb(255, 255, 255)
+}
