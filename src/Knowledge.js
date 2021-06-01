@@ -30,7 +30,7 @@ class Knowledge extends React.Component {
     this.fetchStatement();
   }
 
-//Get past high scores
+  //Get past high scores
   getRecord = () => {
     this.props.auth0.getIdTokenClaims()
       .then(tokenData => {
@@ -79,8 +79,8 @@ class Knowledge extends React.Component {
   }
 
 
-// When the game is over, send the game name, if they won, and the score. Get back times won, high score
-// Need to do an inital get of records when they enter page
+  // When the game is over, send the game name, if they won, and the score. Get back times won, high score
+  // Need to do an inital get of records when they enter page
 
   sendGameData = () => {
 
@@ -132,12 +132,12 @@ class Knowledge extends React.Component {
   }
 
   handleEnd = () => {
-    this.setState({showEndModal: true});
+    this.setState({ showEndModal: true });
 
-    if (this.state.score > 7){
-      this.setState({didWin: true});
+    if (this.state.score > 7) {
+      this.setState({ didWin: true });
     } else {
-      this.setState({didWin: false});
+      this.setState({ didWin: false });
     }
 
     this.sendGameData();
@@ -145,16 +145,15 @@ class Knowledge extends React.Component {
   }
 
   setEndModal = (value) => {
-    this.setState({showEndModal: false})
+    this.setState({ showEndModal: false })
   }
 
   render() {
     return (
-      <>
+      <div>
         <Background />
 
-        <section className="toFade" id="knowledge">
-
+        <section id="topKnow">
           <h1>The Knowledge Game</h1>
 
           <div className="gameStats">
@@ -164,33 +163,31 @@ class Knowledge extends React.Component {
             <div id="instructions">
               <button id="instructionz" onClick={() => this.setState({ showModal: true })}>Instructions</button>
             </div>
-
-            {/* This could be moved to another module perhaps... Maybe a task for later. */}
-            <Modal
-              show={this.state.showModal}
-              onHide={() => this.setState({ showModal: false })}
-              id="modal"
-            >
-              <Modal.Header closeButton>
-                <Modal.Title id="modal-title">
-                  Instructions
-                  </Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <p>
-                  You will be faced with 10 statements that are either truths, or lies. You have to figure out which is which! You get ten rounds, and if you get more than 8 correct... We'll count that as a win :)
-                  </p>
-              </Modal.Body>
-            </Modal>
-
-            <KnowledgeEndModal showEndModal={this.state.showEndModal} score={this.state.score} callback={this.setEndModal}/>
-
           </div>
+        </section>
 
-          {/* {!this.state.gameState
-            ?     
-            <KnowledgeEndModal showEndModal={this.state.showEndModal} score={this.state.score} callback={this.setEndModal}/>
-            : null} */}
+        <section className="toFade" id="knowledge">
+
+          {/* This could be moved to another module perhaps... Maybe a task for later. */}
+          <Modal
+            show={this.state.showModal}
+            onHide={() => this.setState({ showModal: false })}
+            id="modal"
+          >
+            <Modal.Header closeButton>
+              <Modal.Title id="modal-title">
+                Instructions
+                    </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <p>
+                You will be faced with 10 statements that are either truths, or lies. You have to figure out which is which! You get ten rounds, and if you get more than 8 correct... We'll count that as a win :)
+                    </p>
+            </Modal.Body>
+          </Modal>
+
+          <KnowledgeEndModal showEndModal={this.state.showEndModal} score={this.state.score} callback={this.setEndModal} />
+
           <div id="statement">
             <h3>Statement Will Be Here{this.state.currentStatement}</h3>
           </div>
@@ -209,7 +206,7 @@ class Knowledge extends React.Component {
             </div>
           </div>
         </section>
-      </>
+      </div>
     )
   }
 }
