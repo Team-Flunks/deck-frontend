@@ -15,12 +15,12 @@ class EnterPage extends React.Component {
   render() {
     return (
       <>
-      <section className="toFade" id="enter-page">
-        <div id="enter-div">
-        <h1>Project Arcade</h1>
-        <Link to="/home">enter the arcade</Link>
-        </div>
-      </section>
+        <section className="toFade" id="enter-page">
+          <div id="enter-div">
+            <h1>Project Arcade</h1>
+            <Link to="/home">enter the arcade</Link>
+          </div>
+        </section>
       </>
     )
   }

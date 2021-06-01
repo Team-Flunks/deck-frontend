@@ -12,9 +12,9 @@ class HomePage extends React.Component {
   render() {
     return (
       <>
-      <Background />
-      <section className="toFade" id="home-page">
-        <h1>You are on the Home page</h1>
+        <Background />
+        <section className="toFade" id="home-page">
+          <h1>You are on the Home page</h1>
         </section>
       </>
     )

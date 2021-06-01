@@ -78,27 +78,27 @@ class Knowledge extends React.Component {
             <h4>Current Score: {this.state.score}</h4>
 
             <div id="instructions">
-              <button id="instructionz" onClick={() => this.setState({showModal: true})}>Instructions</button>
+              <button id="instructionz" onClick={() => this.setState({ showModal: true })}>Instructions</button>
             </div>
 
             {/* This could be moved to another module perhaps... Maybe a task for later. */}
             <Modal
               show={this.state.showModal}
-              onHide={() => this.setState({showModal: false})}
+              onHide={() => this.setState({ showModal: false })}
               id="modal"
-              >
-                <Modal.Header closeButton>
-                  <Modal.Title id="modal-title">
-                    Instructions
+            >
+              <Modal.Header closeButton>
+                <Modal.Title id="modal-title">
+                  Instructions
                   </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <p>
+              </Modal.Header>
+              <Modal.Body>
+                <p>
                   You will be faced with 10 statements that are either truths, or lies. You have to figure out which is which! You get ten rounds, and if you get more than 5 correct... We'll count that as a win :)
                   </p>
-                </Modal.Body>
-              </Modal>
-            
+              </Modal.Body>
+            </Modal>
+
           </div>
 
 
