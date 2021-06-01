@@ -15,7 +15,7 @@ class Profile extends React.Component {
       <>
         <Background />
         <div className="profileData toFade">
-        <h1>My Profile</h1>
+          <h1>My Profile</h1>
           <h2>Username: {this.props.auth0.user.nickname}</h2>
           <img src={this.props.auth0.user.picture} alt="User Picture" />
           <h3>Email: {this.props.auth0.user.email}</h3>
