@@ -10,7 +10,7 @@ import AboutUs from './AboutUs.js';
 import EnterPage from './EnterPage.js';
 import { withAuth0 } from '@auth0/auth0-react';
 import React from 'react';
-import { TranitionGroup, CSSTransition } from 'react-transition-group';
+// import { TranitionGroup, CSSTransition } from 'react-transition-group';
 
 class App extends React.Component {
   render() {
@@ -44,9 +44,7 @@ class App extends React.Component {
                 : null}
             </Route>
             <Route exact path="/AboutUs">
-              {this.props.auth0.isAuthenticated
-                ? <AboutUs />
-                : null}
+              <AboutUs />
             </Route>
           </IsLoadingAndError>
         </BrowserRouter>
