@@ -1,0 +1,15 @@
+
+.profileData{
+  background-color: rgb(219, 219, 219);
+  width: 90%;
+  height: 100%;
+  margin: auto;
+}
+
+.profileData img {
+  width: 20%;
+}
+
+.profile h1 {
+  text-align: center;
+}
