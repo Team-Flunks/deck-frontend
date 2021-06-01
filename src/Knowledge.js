@@ -7,7 +7,6 @@ import KnowledgeEndModal from './KnowledgeEndModal.js'
 import './css/Knowledge.css';
 import { Modal } from 'react-bootstrap';
 
-
 class Knowledge extends React.Component {
   constructor(props) {
     super(props);
@@ -22,6 +21,7 @@ class Knowledge extends React.Component {
       showModal: false,
       showEndModal: false,
       didWin: false,
+      tokens: 0,
     }
   }
 
@@ -30,7 +30,7 @@ class Knowledge extends React.Component {
     this.fetchStatement();
   }
 
-  //Get past high scores
+  //Get past high scores for current user
   getRecord = () => {
     this.props.auth0.getIdTokenClaims()
       .then(tokenData => {
@@ -50,7 +50,6 @@ class Knowledge extends React.Component {
             console.log(singleGame)
 
             console.log(singleGame[0].highscore)
-
 
             this.setState({ highScore: singleGame[0].highscore });
           })
@@ -72,7 +71,8 @@ class Knowledge extends React.Component {
         axios(requestConfig)
           .then(response => {
             this.setState({ currentStatement: response.data.question });
-            this.setState({ currentStatementCandor: 'true'});
+            this.setState({ currentStatementCandor: response.data.answer });
+            console.log('Current candor of the question: ', response.data.answer);
           })
           .catch(err => console.error(err));
       })
@@ -97,15 +97,15 @@ class Knowledge extends React.Component {
           .then(response => {
 
             let array = response.data;
-            console.log(array)
+            console.log(array);
 
             const singleGame = array.filter(game => game.game === "knowledgegame");
-            console.log(singleGame)
+            console.log(singleGame);
 
             this.setState({ highScore: singleGame[0].highscore });
 
-            this.setState({ score: 0 })
-            this.setState({ rounds: 0 })
+            this.setState({ score: 0 });
+            this.setState({ rounds: 0 });
           })
           .catch(err => console.error(err));
       })
@@ -113,12 +113,12 @@ class Knowledge extends React.Component {
 
 
   testAnswer = () => {
-    console.log(this.state.currentStatementCandor);
+    console.log(this.state.selectedButton);
     if (this.state.selectedButton === this.state.currentStatementCandor) {
       this.setState({ score: this.state.score + 1 });
     }
     this.setState({ rounds: this.state.rounds + 1 });
-    if (this.state.rounds === 9) {
+    if (this.state.rounds === 10) {
       this.handleEnd();
     }
     if (this.state.gameState) {
@@ -127,30 +127,24 @@ class Knowledge extends React.Component {
   }
 
   // 0 is truth, 1 is lie
-  handleClick = async (string) => {
-    if(string === 'true'){
-      await this.setState({ selectedButton: 'true' });
-    } else {
-      await this.setState({ selectedButton: 'false' });
-    }
+  handleClick = async (boolean) => {
+    await this.setState({ selectedButton: boolean });
     this.testAnswer();
   }
 
   handleEnd = () => {
     this.setState({ showEndModal: true });
-
     if (this.state.score > 7) {
+      this.setState({ tokens: tokens + 1 });
       this.setState({ didWin: true });
     } else {
       this.setState({ didWin: false });
     }
-
     this.sendGameData();
-
   }
 
-  setEndModal = (value) => {
-    this.setState({ showEndModal: false })
+  setEndModal = () => {
+    this.setState({ showEndModal: false });
   }
 
   render() {
@@ -191,28 +185,28 @@ class Knowledge extends React.Component {
             </Modal.Body>
           </Modal>
 
-          <KnowledgeEndModal showEndModal={this.state.showEndModal} score={this.state.score} callback={this.setEndModal} />
+          <KnowledgeEndModal showEndModal={this.state.showEndModal} didWin={this.state.didWin} callback={this.setEndModal} />
 
+          {/* This is the current question asked */}
           <div id="statement">
-            <h3>Statement Will Be Here{this.state.currentStatement}</h3>
+            <h3>{this.state.currentStatement}</h3>
           </div>
 
           <div id="question">
             <h2>Hmmm... Is this a truth, or a lie?</h2>
           </div>
 
-
           <div id="buttons">
             <div>
-              <button className="button" id="truth" onClick={() => this.handleClick('true')}>TRUTH</button>
+              <button className="button" id="truth" onClick={() => this.handleClick(true)}>TRUTH</button>
             </div>
             <div>
-              <button className="button" id="lie" onClick={() => this.handleClick('false')}>LIE</button>
+              <button className="button" id="lie" onClick={() => this.handleClick(false)}>LIE</button>
             </div>
           </div>
         </section>
       </div>
-    )
+    );
   }
 }
 
