@@ -6,6 +6,7 @@ import Background from './Background.js'
 import KnowledgeEndModal from './KnowledgeEndModal.js'
 import './css/Pokemon.css';
 import { Modal } from 'react-bootstrap';
+import pokedex from './Pokedex.png'
 
 class Pokemon extends React.Component {
   constructor(props) {
@@ -14,10 +15,10 @@ class Pokemon extends React.Component {
       score: 0,
       rounds: 0,
       highScore: 0,
-      pokemon: ['first poke', 'second poke', 'third poke', 'fourth poke'],
-      target: 0,
-      imageSrc: 'https://via.placeholder.com/150',
-      selectedButton: 0,
+      pokemon: [],
+      target: null,
+      imageSrc: pokedex,
+      selectedButton: null,
       gameState: true,
       showModal: false,
       showEndModal: false,
@@ -49,7 +50,7 @@ class Pokemon extends React.Component {
             const singleGame = array.filter(game => game.game === "pokemongame");
             console.log(singleGame)
 
-            console.log(singleGame[0].highscore)
+            console.log(singleGame[0])
 
             this.setState({ highScore: singleGame[0].highscore });
           })
@@ -66,16 +67,16 @@ class Pokemon extends React.Component {
           headers: { "Authorization": `Bearer ${jwt}` },
           method: 'get',
           baseURL: process.env.REACT_APP_SERVER_URL || 'http://localhost:3002',
-          url: '/pokemongame',
+          url: '/pokeInfo',
         }
         axios(requestConfig)
           .then(response => {
-            //May need another .data after .data
+            console.log()
             this.setState({ pokemon: response.data.names });
             this.setState({ target: response.data.target });
             this.setState({ imageSrc: response.data.imageSrc });
 
-
+            console.log(this.state.target)
           })
           .catch(err => console.error(err));
       })
@@ -85,6 +86,8 @@ class Pokemon extends React.Component {
   // Need to do an inital get of records when they enter page
 
   sendGameData = () => {
+
+    console.log(this.state.didWin);
 
     this.props.auth0.getIdTokenClaims()
       .then(tokenData => {
@@ -116,11 +119,12 @@ class Pokemon extends React.Component {
 
 // Test if the poke that was clicked is equal to the target sent by server
   testAnswer = () => {
+
     if (this.state.selectedButton === this.state.target) {
       this.setState({ score: this.state.score + 1 });
     }
     this.setState({ rounds: this.state.rounds + 1 });
-    if (this.state.rounds === 4) {
+    if (this.state.rounds === 5) {
       this.handleEnd();
     }
     if (this.state.gameState) {
@@ -129,22 +133,24 @@ class Pokemon extends React.Component {
   }
 
   // set selected button equal to 0-3, so correspond with the poke that was clicked
-  handleClick = (e) => {
-    this.setState({ selectedButton: e });
+  handleClick = async (e) => {
+    await this.setState({ selectedButton: e });
     this.testAnswer();
   }
 
 
   // //FUNCTION TO DETERMINE WHEN POKEMON GAME ENDS that will call handleEnd
 
-  handleEnd = () => {
+  handleEnd = async () => {
     this.setState({showEndModal: true});
 
     if (this.state.score > 3){
-      this.setState({didWin: true});
+      await this.setState({didWin: true});
     } else {
-      this.setState({didWin: false});
+      await this.setState({didWin: false});
     }
+
+    console.log(this.state.didWin);
 
     this.sendGameData();
 
@@ -192,7 +198,7 @@ class Pokemon extends React.Component {
             </Modal.Body>
           </Modal>
 
-          <KnowledgeEndModal showEndModal={this.state.showEndModal} score={this.state.score} callback={this.setEndModal}/>
+          <KnowledgeEndModal showEndModal={this.state.showEndModal} didWin={this.state.didWin} callback={this.setEndModal}/>
 
 
         <div id="poke-picture">
