@@ -52,14 +52,15 @@ class Profile extends React.Component {
 
   setPokeStates = async (pokemon, knowledge) => {
 
-    await this.setState({ knowledge: knowledge[0] })
-
-    // pokemon: pokemon[0] ^
+    await this.setState({ knowledge: knowledge[0], pokemon: pokemon[0]})
 
     console.log(this.state.knowledge);
 
-    let pp = (100 * this.state.pokemon.timesWon) / this.state.pokemon.timesPlayed
-    let kp = (100 * this.state.knowledge.timesWon) / this.state.knowledge.timesPlayed
+    let pp = ((100 * this.state.pokemon.timesWon) / this.state.pokemon.timesPlayed).toFixed(1);
+
+    let kp = ((100 * this.state.knowledge.timesWon) / this.state.knowledge.timesPlayed).toFixed(1);
+
+    
 
     this.setState({ pokePercentage: pp, knowPercentage: kp })
 
@@ -103,11 +104,11 @@ class Profile extends React.Component {
 
           <div className="pokemon">
             <h2>Pokemon Game</h2>
-            <h3>High Score: {this.state.knowledge.highscore} / 10</h3>
+            <h3>High Score: {this.state.pokemon.highscore} / 5</h3>
             <div className="stat-divider"></div>
-            <h3>Times Played: {this.state.knowledge.timesPlayed}</h3>
+            <h3>Times Played: {this.state.pokemon.timesPlayed}</h3>
             <div className="stat-divider"></div>
-            <h3>Percentage of Times Won: {this.state.knowPercentage} %</h3>
+            <h3>Percentage of Times Won: {this.state.pokePercentage} %</h3>
           </div>
         </section>
       </>
