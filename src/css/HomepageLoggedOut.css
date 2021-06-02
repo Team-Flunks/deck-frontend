@@ -1,0 +1,19 @@
+.HomepageLoggedOut h1 {
+  color: #e74040;
+  text-align: center;
+  height: 100vh;
+  padding: 2em;
+  font-family: 'Space Mono', monospace;
+  font-size: 4em;
+  animation: blinking 3s infinite;
+}
+
+@keyframes blinking {
+  0% {color:#e74040;}
+  50% {color: #e740402c;}
+  0% {color:#e74040;}
+}
+
+.HomepageLoggedOut {
+  background-color: rgb(20, 20, 20);
+}
