@@ -1,15 +1,22 @@
 
-.profileData{
+#profile-overall {
   background-color: rgba(83, 81, 81, 0.623);
   border-radius: 25px;
-  width: 30%;
+  width: 70%;
   height: 100%;
   margin: 2em auto;
-  font-family: 'Hind Siliguri', sans-serif;
+}
+
+
+.profileData{
+  padding: 20px;
+  color: white;
+  width: 80%;
+  margin: auto;
 }
 
 .profileData img {
-  width: 50%;
+  width: 25%;
 }
 
 .profileData h1, .profileData h2, .profileData h3 {
@@ -18,9 +25,80 @@
 }
 
 .profileData h1 {
-  border-bottom: solid #FFFFFF 2px;
+  border-bottom: solid #FFFFFF 10px;
   width: 50%;
-  padding-top: 20px;
-  margin: 0 auto;
+  margin: 50px auto ;
+  margin-bottom: 0.3em;
+  font-family: 'Space Mono', monospace;
+  padding-bottom: 30px;
+}
+
+#user-email {
+  padding: 20px;
+  margin-top: 10px;
+  background-color: rgb(0, 0, 0);
+}
+
+#user-email h3 {
+  font-size: 1.5em;
+  color: white;
+}
+
+
+#user-email h2 {
+  color: rgb(48, 48, 48);
+  background-color: rgb(255, 255, 255);
+  font-family: 'Space Mono', monospace;
+  margin-bottom: 20px;
+
+}
+
+#heading {
+  display: flex;
+  flex-direction: column;
+}
+
+#profile-game-stats {
+  color: white;
+  border-bottom: solid #ffffff 10px;
+  width: 50%;
+  padding-bottom: 30px;
+  margin: 50px auto ;
   margin-bottom: 0.6em;
+  font-family: 'Space Mono', monospace;
+  text-align: center;
+
+}
+
+.knowledge, .pokemon {
+  padding: 20px;
+  color: white;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.knowledge h2, .pokemon h2, .knowledge h3, .pokemon h3 {
+  color: white;
+}
+
+
+.knowledge h2, .pokemon h2 {
+  color: rgb(48, 48, 48);
+  background-color: rgb(255, 255, 255);
+  font-family: 'Space Mono', monospace;
+  margin-bottom: 20px;
+
+}
+
+.knowledge h3, .pokemon h3 {
+  font-size: 1.5em;
+}
+
+.knowledge {
+  background-color:  rgb(13, 66, 163);
+}
+
+.pokemon {
+  background-color: rgb(0, 145, 84);
 }
