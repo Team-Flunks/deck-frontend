@@ -8,6 +8,7 @@ import Knowledge from './Knowledge.js';
 import Pokemon from './Pokemon.js';
 import AboutUs from './AboutUs.js';
 import EnterPage from './EnterPage.js';
+import Tokens from './Token.js';
 // import TestSuite from './TestSuite.js';
 import { withAuth0 } from '@auth0/auth0-react';
 import React from 'react';
@@ -29,6 +30,11 @@ class App extends React.Component {
             <Route exact path="/home">
               {this.props.auth0.isAuthenticated
                 ? <HomePage />
+                : null}
+            </Route>
+            <Route exact path="/tokens">
+              {this.props.auth0.isAuthenticated
+                ? <Tokens />
                 : null}
             </Route>
             <Route exact path="/profile">
