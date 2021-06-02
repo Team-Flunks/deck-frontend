@@ -130,6 +130,46 @@ class TestSuite extends React.Component {
       })
   }
 
+  rewardFetchQuote = () => {
+    //Assumes that the user is tied to the auth0 email
+    this.props.auth0.getIdTokenClaims()
+      .then(tokenData => {
+        const jwt = tokenData.__raw;
+        const requestConfig = {
+          headers: { "Authorization": `Bearer ${jwt}` },
+          method: 'get',
+          baseURL: process.env.REACT_APP_SERVER_URL || 'http://localhost:3002',
+          url: `/rewardRequestQuote/`
+        }
+        axios(requestConfig)
+          .then(response => {
+            console.log('Client Reward Quote Data In');     
+            console.log(response);
+          })
+          .catch(err => console.error(err));
+      })
+  }
+
+  rewardFetchImage = () => {
+    //Assumes that the user is tied to the auth0 email
+    this.props.auth0.getIdTokenClaims()
+      .then(tokenData => {
+        const jwt = tokenData.__raw;
+        const requestConfig = {
+          headers: { "Authorization": `Bearer ${jwt}` },
+          method: 'get',
+          baseURL: process.env.REACT_APP_SERVER_URL || 'http://localhost:3002',
+          url: `/rewardRequestImage/`
+        }
+        axios(requestConfig)
+          .then(response => {
+            console.log('Client Reward Image Data In');     
+            console.log(response);
+          })
+          .catch(err => console.error(err));
+      })
+  }
+
 //===============Button Render Area===============
 
   render() {
@@ -139,6 +179,8 @@ class TestSuite extends React.Component {
         <button onClick={this.allUsersFetch}>All Users Data Pull</button>
         <button onClick={this.knowledgeInfoFetch}>Knowledge Info Pull</button>
         <button onClick={this.pokeInfoFetch}>Poke Info Pull</button>
+        <button onClick={this.rewardFetchQuote}>Reward Quote Request</button>
+        <button onClick={this.rewardFetchImage}>Reward Image Request</button>
         <Form.Group>
           <Form.Label>Test Game Record Info</Form.Label>
           <Form.Control placeholder="game" onChange={this.newGame} ></Form.Control>
