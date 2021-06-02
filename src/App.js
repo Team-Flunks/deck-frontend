@@ -25,14 +25,14 @@ class App extends React.Component {
             {/* CHAZ Back end REALLY wants this to still be here, you can comment out the render but please don't delete the test suite */}
             {/* <TestSuite /> */}
             <Route exact path="/">
-              <EnterPage />
-            </Route>
-            <Route exact path="/home">
-              {this.props.auth0.isAuthenticated
-                ? <HomePage />
+            {this.props.auth0.isAuthenticated
+                ? <EnterPage />
                 : null}
             </Route>
-            <Route exact path="/tokens">
+            <Route exact path="/home">
+              <HomePage />
+            </Route>
+            <Route exact path="/token">
               {this.props.auth0.isAuthenticated
                 ? <Tokens />
                 : null}
