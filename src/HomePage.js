@@ -16,7 +16,13 @@ class HomePage extends React.Component {
       <>
         <Background />
         <section className="toFade" id="home-page">
-          <h1>Click on a game to start playing!</h1>
+
+          <div id="profile-lines-home">
+          <div className="profile-divider"></div>
+          <h1>Click a game to play!</h1>
+          <div className="profile-divider"></div>
+          </div>
+
           <div className="machines">
             <Link to="/knowledge" className="machine">
               <img src={KnowledgePicture} alt="Knowledge Game" />

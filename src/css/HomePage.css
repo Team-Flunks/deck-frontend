@@ -1,15 +1,14 @@
 #home-page {
   background-color: rgba(83, 81, 81, 0.623);
   border-radius: 25px;
-  height: 700px;
+  height: 740px;
   margin: 2em auto;
-  width: 900px;
+  width: 800px;
 }
 
 #home-page h1 {
-  border-bottom: solid #FFFFFF 2px;
   color: #FFFFFF;
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: 'Space Mono', monospace;
   text-align: center;
   width: 70%;
   margin: 0 auto;
@@ -26,4 +25,12 @@ a img {
 
 .machines {
   display: flex;
+}
+
+#profile-lines-home {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: 20px auto;
+  padding-top: 30px;
 }
