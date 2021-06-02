@@ -21,7 +21,6 @@ class Knowledge extends React.Component {
       showModal: false,
       showEndModal: false,
       didWin: false,
-      tokens: 0,
       previousRound: false,
     }
   }
@@ -141,7 +140,6 @@ class Knowledge extends React.Component {
   handleEnd = () => {
     this.setState({ showEndModal: true });
     if (this.state.score > 7) {
-      this.setState({ tokens: this.state.tokens + 1 });
       this.setState({ didWin: true });
     } else {
       this.setState({ didWin: false });

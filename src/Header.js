@@ -14,6 +14,7 @@ class Header extends React.Component {
         {this.props.auth0.isAuthenticated
           ? <>
             <Link to="/home">Homepage</Link>
+            <Link to="/token">Redeem Prizes!</Link>
             <Link to="/profile">Profile</Link>
           </>
           : null}
