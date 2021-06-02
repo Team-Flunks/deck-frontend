@@ -1,3 +1,4 @@
+import React from 'react';
 import './css/App.css';
 import { Route, BrowserRouter } from 'react-router-dom';
 import IsLoadingAndError from './IsLoadingAndError';
@@ -9,9 +10,9 @@ import Pokemon from './Pokemon.js';
 import AboutUs from './AboutUs.js';
 import EnterPage from './EnterPage.js';
 import Tokens from './Token.js';
+import HomepageLoggedOut from './HomepageLoggedOut';
 // import TestSuite from './TestSuite.js';
 import { withAuth0 } from '@auth0/auth0-react';
-import React from 'react';
 // import { TranitionGroup, CSSTransition } from 'react-transition-group';
 
 class App extends React.Component {
@@ -25,9 +26,9 @@ class App extends React.Component {
             {/* CHAZ Back end REALLY wants this to still be here, you can comment out the render but please don't delete the test suite */}
             {/* <TestSuite /> */}
             <Route exact path="/">
-            {this.props.auth0.isAuthenticated
+              {this.props.auth0.isAuthenticated
                 ? <EnterPage />
-                : null}
+                : <HomepageLoggedOut />}
             </Route>
             <Route exact path="/home">
               <HomePage />
