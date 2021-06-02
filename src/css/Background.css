@@ -1,0 +1,32 @@
+/* Uncomment for all font to match */
+/* body * {
+  font-family: 'Space Mono', monospace;
+} */
+
+/* Background GIF */
+#background-vid {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 75%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+}
+
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+.toFade {
+  animation: fadeInAnimation ease 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}

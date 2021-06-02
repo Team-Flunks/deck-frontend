@@ -1,0 +1,36 @@
+#home-page {
+  background-color: rgba(83, 81, 81, 0.623);
+  border-radius: 25px;
+  height: 740px;
+  margin: 2em auto;
+  width: 800px;
+}
+
+#home-page h1 {
+  color: #FFFFFF;
+  font-family: 'Space Mono', monospace;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+}
+
+a.machine {
+  width: 50%;
+}
+
+a img {
+  width: 70%;
+  margin: 2em auto;
+}
+
+.machines {
+  display: flex;
+}
+
+#profile-lines-home {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: 20px auto;
+  padding-top: 30px;
+}

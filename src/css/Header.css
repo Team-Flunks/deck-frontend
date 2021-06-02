@@ -1,0 +1,24 @@
+.HeaderClass {
+  background-color: black;
+  height: 100px;
+}
+
+.HeaderClass a {
+  color: #FFFFFF;
+  font-family: 'Space Mono', monospace;
+  margin: 0 auto;
+  transition: 1s;
+}
+
+.HeaderClass a:hover {
+  color: #e74040;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.HeaderClass h1 {
+  color: #e74040;
+  font-family: 'Space Mono', monospace;
+  font-size: 2.5em;
+  margin: 0 auto;
+}
