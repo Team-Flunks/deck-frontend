@@ -64,6 +64,7 @@
 
 #poke-picture img:nth-child(1) {
   width: 300px;
+  height: 300px;
   border: 8px dotted rgb(0, 58, 3);
 }
 
