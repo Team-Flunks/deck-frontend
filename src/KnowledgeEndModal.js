@@ -31,7 +31,7 @@ class KnowledgeEndModal extends React.Component {
           <Modal.Header closeButton>
             <Modal.Title id="end-modal-title">
               GAME OVER
-                  </Modal.Title>
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <p>
