@@ -71,36 +71,45 @@ class Profile extends React.Component {
       <>
         <Background />
         <section id="profile-overall">
-        <div className="profileData toFade">
-          <div id="heading">
-          <h1>My Profile</h1>
-          <img src={this.props.auth0.user.picture} alt="User Picture" />
+          <div className="profileData toFade">
+            <div id="heading">
+              <div id="profile-lines">
+                <div className="profile-divider"></div>
+                <h1>My Profile</h1>
+                <div className="profile-divider"></div>
+              </div>
+              <img src={this.props.auth0.user.picture} alt="User Picture" />
+            </div>
+
+            <div id="user-email">
+              <h2>My Information</h2>
+              <h3>Username: {this.props.auth0.user.nickname}</h3>
+              <div className="stat-divider"></div>
+              <h3>Email: {this.props.auth0.user.email}</h3>
+            </div>
           </div>
 
-          <div id="user-email">
-          <h2>My Information</h2>
-          <h3>Username: {this.props.auth0.user.nickname}</h3>
-          <h3>Email: {this.props.auth0.user.email}</h3>
-        </div>
-        </div>
+          {/* <h1 id="profile-game-stats">My Game Stats</h1> */}
 
-        <h1 id="profile-game-stats">My Game Stats</h1>
-
-        <div className="knowledge">
-            <h2>The Knowledge Game</h2>
+          <div className="knowledge">
+            <h2>Knowledge Game</h2>
             <h3>High Score: {this.state.knowledge.highscore} / 10</h3>
+            <div className="stat-divider"></div>
             <h3>Times Played: {this.state.knowledge.timesPlayed}</h3>
+            <div className="stat-divider"></div>
             <h3>Percentage of Times Won: {this.state.knowPercentage} %</h3>
           </div>
 
 
           <div className="pokemon">
-          <h2>The Pokemon Game</h2>
-          <h3>High Score: {this.state.knowledge.highscore} / 10</h3>
+            <h2>Pokemon Game</h2>
+            <h3>High Score: {this.state.knowledge.highscore} / 10</h3>
+            <div className="stat-divider"></div>
             <h3>Times Played: {this.state.knowledge.timesPlayed}</h3>
+            <div className="stat-divider"></div>
             <h3>Percentage of Times Won: {this.state.knowPercentage} %</h3>
           </div>
-          </section>
+        </section>
       </>
     )
   }

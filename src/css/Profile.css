@@ -1,22 +1,23 @@
 
 #profile-overall {
-  background-color: rgba(83, 81, 81, 0.623);
+  background-color: rgba(83, 81, 81, .63);
   border-radius: 25px;
   width: 70%;
   height: 100%;
   margin: 2em auto;
 }
 
-
 .profileData{
   padding: 20px;
   color: white;
-  width: 80%;
+  width: 86%;
   margin: auto;
 }
 
 .profileData img {
   width: 25%;
+  border: 10px solid white;
+  margin-top: 50px;
 }
 
 .profileData h1, .profileData h2, .profileData h3 {
@@ -25,12 +26,9 @@
 }
 
 .profileData h1 {
-  border-bottom: solid #FFFFFF 10px;
   width: 50%;
-  margin: 50px auto ;
-  margin-bottom: 0.3em;
+  margin: 20px auto ;
   font-family: 'Space Mono', monospace;
-  padding-bottom: 30px;
 }
 
 #user-email {
@@ -42,6 +40,7 @@
 #user-email h3 {
   font-size: 1.5em;
   color: white;
+  margin-top: 10px;
 }
 
 
@@ -50,7 +49,6 @@
   background-color: rgb(255, 255, 255);
   font-family: 'Space Mono', monospace;
   margin-bottom: 20px;
-
 }
 
 #heading {
@@ -63,7 +61,7 @@
   border-bottom: solid #ffffff 10px;
   width: 50%;
   padding-bottom: 30px;
-  margin: 50px auto ;
+  margin: 20px auto ;
   margin-bottom: 0.6em;
   font-family: 'Space Mono', monospace;
   text-align: center;
@@ -76,6 +74,23 @@
   width: 80%;
   margin: auto;
   margin-bottom: 25px;
+}
+
+.stat-divider {
+  width: 100%;
+  height: 3px;
+  background-color: rgb(250, 250, 250, 0.2);
+}
+
+.profile-divider {
+  width: 24%;
+  height: 8px;
+  background-color: rgb(250, 250, 250, 1);
+}
+
+#profile-lines {
+  display: flex;
+  align-items: center;
 }
 
 .knowledge h2, .pokemon h2, .knowledge h3, .pokemon h3 {
@@ -93,6 +108,7 @@
 
 .knowledge h3, .pokemon h3 {
   font-size: 1.5em;
+  margin-top: 10px;
 }
 
 .knowledge {
