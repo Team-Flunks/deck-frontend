@@ -1,0 +1,11 @@
+#token-page {
+  background-color: rgb(168, 8, 8);
+  width: 900px;;
+  height: 580px;
+  margin: auto;
+}
+
+#token-page button {
+  color: white;
+  background-color: black;
+}
