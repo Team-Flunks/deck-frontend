@@ -10,7 +10,7 @@ class Token extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tokens: null,
+      tokens: 0,
       reward: '',
     }
   }
@@ -94,12 +94,21 @@ handleClick = async () => {
         <Background />
         <section className="toFade" id="token-page">
 
-          <div id="initial-tokens>">
-            <h3>{this.state.tokens}</h3>
+          <h1>The Token Page</h1>
+
+          <div className="gameStats">
+            <div id="initial-tokens>">
+              {/* <h3>Tokens: {this.state.tokens}</h3> */}
+
+              <h3>Tokens: 4</h3>
+            </div>
           </div>
 
+
+
           <div id="reward">
-            <h3>{this.state.reward}</h3>
+            {/* <h3>{this.state.reward}</h3> */}
+            <h3>"joke joke joke!"</h3>
           </div>
 
           <button onClick={this.handleClick} id="token-button">GET REWARD</button>
