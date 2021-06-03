@@ -1,0 +1,17 @@
+#show-past-images, #show-past-quotes{
+  background-color: rgb(105, 105, 247);
+  font-family: 'Space Mono', monospace;
+  height: 40px;
+  font-size: 19px;
+  margin: auto;
+}
+
+#token-button-past{
+  padding-top: 40px;
+  margin: auto;
+  display: flex;
+}
+
+.quote h5 {
+  text-align: center;
+}
