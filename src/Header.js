@@ -13,10 +13,11 @@ class Header extends React.Component {
         <h1>Project Arcade</h1>
         {this.props.auth0.isAuthenticated
           ? <>
-            <Link to="/home">Homepage</Link>
+            <Link to="/home">Home</Link>
+            <Link to="/token">Redeem Prizes!</Link>
             <Link to="/profile">Profile</Link>
           </>
-          : null}
+          : <Link to="/">Home</Link>}
         <Link to="/AboutUs">About Us</Link>
         <LogoutButton />
         <LoginButton />

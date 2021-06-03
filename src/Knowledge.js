@@ -17,11 +17,11 @@ class Knowledge extends React.Component {
       rounds: 0,
       highScore: 0,
       selectedButton: '',
-      gameState: true,
+      gameState: false,
       showModal: false,
       showEndModal: false,
       didWin: false,
-      tokens: 0,
+      previousRound: false,
     }
   }
 
@@ -116,10 +116,14 @@ class Knowledge extends React.Component {
     console.log(this.state.selectedButton);
     if (this.state.selectedButton === this.state.currentStatementCandor) {
       this.setState({ score: this.state.score + 1 });
+      this.setState({ previousRound: true });
+    } else {
+      this.setState({ previousRound: false });
     }
     this.setState({ rounds: this.state.rounds + 1 });
     if (this.state.rounds === 10) {
       this.handleEnd();
+      this.setState({ gameState: false });
     }
     if (this.state.gameState) {
       this.fetchStatement();
@@ -129,13 +133,13 @@ class Knowledge extends React.Component {
   // 0 is truth, 1 is lie
   handleClick = async (boolean) => {
     await this.setState({ selectedButton: boolean });
+    await this.setState({ gameState: true });
     this.testAnswer();
   }
 
   handleEnd = () => {
     this.setState({ showEndModal: true });
     if (this.state.score > 7) {
-      this.setState({ tokens: this.state.tokens + 1 });
       this.setState({ didWin: true });
     } else {
       this.setState({ didWin: false });
@@ -195,6 +199,16 @@ class Knowledge extends React.Component {
           <div id="question">
             <h2>Hmmm... Is this a truth, or a lie?</h2>
           </div>
+
+          {/* Display to user if they got previous round correct or wrong */}
+          {this.state.gameState ?
+            <div>
+              <h2>You got the previous round {this.state.previousRound ? "right" : "wrong"}</h2>
+            </div>
+            :
+            <div>
+              <h2>Play a round to see your skill!</h2>
+            </div>}
 
           <div id="buttons">
             <div>
