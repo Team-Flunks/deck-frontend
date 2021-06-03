@@ -9,7 +9,7 @@ import Knowledge from './Knowledge.js';
 import Pokemon from './Pokemon.js';
 import AboutUs from './AboutUs.js';
 import EnterPage from './EnterPage.js';
-import Tokens from './Token.js';
+import Tokens from './Tokens/Token.js';
 import HomepageLoggedOut from './HomepageLoggedOut';
 import TestSuite from './TestSuite.js';
 import { withAuth0 } from '@auth0/auth0-react';

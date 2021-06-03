@@ -1,7 +1,6 @@
 /* eslint-disable */
 import React from 'react';
 import './css/Background.css';
-import vid from "./gif1.mp4"
 
 
 class Background extends React.Component {
